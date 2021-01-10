@@ -1,0 +1,33 @@
+<div class="row d-flex justify-content-center align-items-center" style=" height: 100vh;">
+  
+    <div class="col-lg-3 col-md-3 col-sm-12" style="vertical-align: middle;">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header text-center">
+          <h4 *ngIf = "!isLoggedIn">Please Login</h4>
+          <h4 *ngIf = "isLoggedIn">Upload File</h4>
+        </div>
+        <div style="padding: 10px;">
+          <img class="card-img-top" src="../assets//images/drive_logo.png" alt="Card image cap">
+  
+        </div>
+        <div class="card-body">
+          <p *ngIf = "!isLoggedIn" class="card-text">Please Login to Upload File</p>
+          <p *ngIf = "isLoggedIn" class="card-text">Please Select a file to Upload</p>
+          <input style="padding: 5px; margin:5px;" class="form-control" *ngIf = "isLoggedIn" type="file" [(ngModel)]="file" (change)="handleFileInput($event.target.files)"/>
+
+          <div class="text-center">
+            <a  *ngIf = "!isLoggedIn" href="{{authUrl}}" class="btn btn-primary text-center">Login</a>
+          <a  style="padding: 5px; margin:5px;" *ngIf = "isLoggedIn" (click)="uploadFile()" class="btn btn-primary text-center">Upload</a>
+
+          </div>
+
+          <!-- <div class="form-group" > -->
+        <!-- </div> -->
+          <!-- <input type="file" class="form-control d-none"  name="file"  [(ngModel)]="file"/> -->
+        </div>
+      </div>
+    </div>
+   
+   
+  </div>
+  
